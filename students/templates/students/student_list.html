@@ -35,9 +35,11 @@
                     <td>{{ student.gpa }}</td>
                     <td>{{ student.enrollment_date|date:"Y-m-d" }}</td>
                     <td>
-                        <a href="{% url 'student_detail' student.id %}" class="btn btn-secondary" style="font-size: 12px;">View</a>
-                        <a href="{% url 'student_update' student.id %}" class="btn btn-warning" style="font-size: 12px;">Edit</a>
-                        <a href="{% url 'student_delete' student.id %}" class="btn btn-danger" style="font-size: 12px;">Delete</a>
+                        <div class="action-buttons">
+                            <a href="{% url 'student_detail' student.id %}" class="btn btn-secondary" style="font-size: 12px;">View</a>
+                            <a href="{% url 'student_update' student.id %}" class="btn btn-warning" style="font-size: 12px;">Edit</a>
+                            <a href="{% url 'student_delete' student.id %}" class="btn btn-danger" style="font-size: 12px;">Delete</a>
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
