@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ student.first_name }} {{ student.last_name }} - Student Records{% endblock %}
+
+{% block content %}
+<h2>Student Details</h2>
+
+<div class="detail-box">
+    <div class="detail-row"><strong>ID:</strong> {{ student.id }}</div>
+    <div class="detail-row"><strong>First Name:</strong> {{ student.first_name }}</div>
+    <div class="detail-row"><strong>Last Name:</strong> {{ student.last_name }}</div>
+    <div class="detail-row"><strong>Email:</strong> {{ student.email }}</div>
+    <div class="detail-row"><strong>Phone:</strong> {{ student.phone|default:"Not provided" }}</div>
+    <div class="detail-row"><strong>GPA:</strong> {{ student.gpa }}</div>
+    <div class="detail-row"><strong>Enrollment Date:</strong> {{ student.enrollment_date|date:"Y-m-d" }}</div>
+</div>
+
+<div class="action-buttons">
+    <a href="{% url 'student_update' student.id %}" class="btn btn-primary">✏️ Edit</a>
+    <a href="{% url 'student_delete' student.id %}" class="btn btn-danger">🗑️ Delete</a>
+    <a href="{% url 'student_list' %}" class="btn btn-secondary">📋 Back to List</a>
+</div>
+
+{% endblock %}
